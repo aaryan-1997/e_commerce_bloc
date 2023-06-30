@@ -9,10 +9,17 @@ class HomeInitial extends HomeState {}
 
 class HomeLoadingState extends HomeState {}
 
-class HomeLoadedSuccessState extends HomeState {}
+class HomeLoadedSuccessState extends HomeState {
+  final List<Product> products;
+
+  HomeLoadedSuccessState({required this.products});
+}
 
 class HomeErrorState extends HomeState {}
 
 class HomeNavigateToWishlistPageActionState extends HomeActionState {}
 
 class HomeNavigateToCartPageActionState extends HomeActionState {}
+
+class HomeProductAddToWishlistActionState extends HomeActionState{}
+class HomeProductAddToCartActionState extends HomeActionState{}
