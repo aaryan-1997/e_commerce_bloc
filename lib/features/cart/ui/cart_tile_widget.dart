@@ -1,12 +1,16 @@
+import 'package:e_commerce_bloc/features/cart/bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../home/models/product.dart';
 
 class CartTileWidget extends StatelessWidget {
   final Product product;
-  //final HomeBloc homeBloc;
-  const CartTileWidget(
-      {super.key, required this.product,});
+  final CartBloc cartBloc;
+  const CartTileWidget({
+    super.key,
+    required this.product,
+    required this.cartBloc,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +75,9 @@ class CartTileWidget extends StatelessWidget {
                       icon: const Icon(Icons.favorite_outline_outlined)),
                   IconButton(
                       onPressed: () {
-                        // homeBloc.add(
-                        //     HomeProductCartButtonClickEvent(product: product));
+                        cartBloc.add(CartRemoveFromCartEvent(product: product));
                       },
-                      icon: const Icon(Icons.shopping_cart_outlined)),
+                      icon: const Icon(Icons.shopping_bag)),
                 ],
               )
             ],
